@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+
+
+
+        }
+
+        body {
+
+
+            background-image: url(./image/sarrr.png);
+
+        }
+
+        .containner {
+            width: 700px;
+            height: 800px;
+            border: 1px solid red;
+        }
+
+
+        #hour {
+            background-color: rgba(0, 255, 10, 0.5);
+            box-shadow:
+                0 0 5px rgba(0, 255, 10, 1),
+                0 0 25px rgba(0, 255, 10, 0.8),
+                0 0 50px rgba(0, 255, 10, 0.5);
+            width: 20%;
+            height: 8px;
+            border-radius: 5px;
+            top: calc(50% - 5px);
+            left: 50%;
+            position: absolute;
+            transform: rotate(0deg);
+            transform-origin: left center;
+        }
+
+        #minute {
+            background-color: rgba(0, 132, 255, 0.5);
+            box-shadow:
+                0 0 5px rgb(16, 75, 90),
+                0 0 25px rgba(0, 183, 255, 0.8),
+                0 0 50px rgba(36, 50, 240, 0.5);
+            width: 30%;
+            height: 10px;
+            border-radius: 5px;
+            top: calc(50% - 5px);
+            left: 50%;
+            position: absolute;
+            transform: rotate(0deg);
+            transform-origin: left center;
+        }
+
+        #second {
+            background-color: rgba(255, 51, 0, 0.5);
+            box-shadow:
+                0 0 5px rgb(241, 74, 52),
+                0 0 25px rgba(207, 65, 46, 0.8),
+                0 0 50px rgba(245, 102, 77, 0.5);
+            width: 40%;
+            height: 10px;
+            border-radius: 5px;
+            top: calc(50% - 5px);
+            left: 50%;
+            position: absolute;
+            transform: rotate(0deg);
+            transform-origin: left center;
+        }
+
+        .wrapper {
+            height: 100px;
+            width: 360px;
+            cursor: default;
+            background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+            border-radius: 10px;
+            animation: animate 1.5s linear infinite;
+            position: relative;
+            left: 300px;
+            top: -120px;
+            box-shadow: 0 0 5px rgba(0, 255, 10, 1),
+                0 0 25px rgba(0, 255, 10, 0.8),
+                0 0 50px rgba(0, 255, 10, 0.5);
+
+
+        }
+
+        .wrapper .display,
+        .wrapper span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+        }
+
+        .wrapper .display {
+            z-index: 888;
+            background: #1b1b1b;
+            height: 85px;
+            width: 345px;
+            border-radius: 7px;
+            text-align: center;
+            left: 2%;
+            top: 6%;
+            box-sizing: border-box;
+        }
+
+        .wrapper .display #time {
+            font-family: "Share Tech Mono", monospace;
+            text-align: center;
+            font-size: 2rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #daf6ff;
+            text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+        }
+
+        .wrapper2 {
+            height: 325px;
+            width: 325px;
+            cursor: default;
+            border-radius: 50px;
+            border-radius: 999em;
+            animation: animate 1.5s linear infinite;
+            position: relative;
+            left: 842px;
+            top: -466px;
+            box-shadow: 0 0 5px rgba(0, 255, 10, 1),
+                0 0 25px rgba(0, 255, 10, 0.8),
+                0 0 50px rgba(0, 255, 10, 0.5)
+        }
+
+
+        .wrapper2 .display2,
+        .wrapper2 span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+
+
+        }
+
+        .wrapper2 .display2 {
+            z-index: 888;
+            background: #1b1b1b;
+            height: 85px;
+            width: 345px;
+            border-radius: 7px;
+            text-align: center;
+            left: 2%;
+            top: 6%;
+            box-sizing: border-box;
+        }
+
+
+
+        .wrapper2 .display #time2 {
+            line-height: 85px;
+            font-size: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #0d635a, #bdac16, #ec0fd3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate 1.5s linear infinite;
+        }
+
+
+
+        @keyframes animate {
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+
+
+        .timmer {
+
+            height: 100vh;
+            width: 100%;
+            float: left;
+            text-align: center;
+            animation: mymove 5s infinite;
+            /*animation 時間 播放次數*/
+            animation-direction: alternate;
+            /*是否循環交替反向播放動畫*/
+            /*Safari 和 Chrome:*/
+            -webkit-animation: mymove 5s infinite;
+        }
+
+        /*@keyframes mymove {
+
+            0% {
+                background: #0e0101;
+            }
+
+            25% {
+                background: #060607;
+            }
+
+            50% {
+                background: #24021f;
+            }
+
+            75% {
+                background: #3d0409;
+            }
+
+            100% {
+                background: #010c05;
+            }
+        }
+
+
+        @-webkit-keyframes mymove {
+
+            0% {
+                background: #ffb787;
+            }
+
+            25% {
+                background: #afff54;
+            }
+
+            50% {
+                background: #08af08;
+            }
+
+            75% {
+                background: #b463ff;
+            }
+
+            100% {
+                background: #4d0757;
+            }
+        }*/
+
+        #clock {
+            width: 280px;
+            height: 280px;
+            background: #25283D;
+            border: 18px solid #1e213a;
+            border-radius: 50%;
+            margin: 200px auto;
+            position: relative;
+            top: 50px;
+            left: 5px;
+            box-shadow: inset 0 5px 25px #00000080,
+                0 5px 25px #00000080,
+                0 5px 30px #00000080,
+                0 5px 35px #00000080,
+                0 5px 35px #00000080,
+                0 5px 35px #00000080;
+        }
+
+        #clock::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            left: -18px;
+            top: -10px;
+            border: 18px solid #cccccc;
+            border-radius: 50%;
+            z-index: -2;
+        }
+
+        #clock::after {
+            content: "";
+            width: 18px;
+            height: 18px;
+            background: #c7d8f8;
+            position: absolute;
+            border-radius: 50%;
+            left: calc(50% - 9px);
+            top: calc(50% - 9px);
+            box-shadow: 0 2px 4px #00000026;
+        }
+
+        #clock li {
+            list-style: none;
+            position: absolute;
+
+
+        }
+
+        .numbers {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            padding: 5%;
+            text-align: center;
+
+        }
+
+        /*.wrapper .display #time {
+            line-height: 85px;
+            font-size: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #0d635a, #bdac16, #ec0fd3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate 1.5s linear infinite;
+        }*/
+
+        .numbers span {
+
+            background: linear-gradient(135deg, #0d635a, #bdac16, #ec0fd3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate 1.5s linear infinite;
+            display: block;
+            color: #dbe7fd;
+            font-size: 38px;
+            text-shadow: 0 5px 18px #00000026, 0 2px 3px #00000033;
+        }
+
+        .numbers:nth-child(1) {
+            transform: rotate(30deg);
+        }
+
+        .numbers:nth-child(1) span {
+            transform: rotate(-30deg);
+        }
+
+        .numbers:nth-child(2) {
+            transform: rotate(60deg);
+        }
+
+        .numbers:nth-child(2)span {
+            transform: rotate(-60deg);
+        }
+
+        .numbers:nth-child(3) {
+            transform: rotate(90deg);
+        }
+
+        .numbers:nth-child(3) span {
+            transform: rotate(-90deg);
+        }
+
+        .numbers:nth-child(4) {
+            transform: rotate(120deg);
+        }
+
+        .numbers:nth-child(4) span {
+            transform: rotate(-120deg);
+        }
+
+        .numbers:nth-child(5) {
+            transform: rotate(150deg);
+        }
+
+        .numbers:nth-child(5) span {
+            transform: rotate(-150deg);
+        }
+
+        .numbers:nth-child(6) {
+            transform: rotate(180deg);
+        }
+
+        .numbers:nth-child(6) span {
+            transform: rotate(-180deg);
+        }
+
+
+        .numbers:nth-child(7) {
+            transform: rotate(210deg);
+        }
+
+        .numbers:nth-child(7) span {
+            transform: rotate(-210deg);
+        }
+
+        .numbers:nth-child(8) {
+            transform: rotate(240deg);
+        }
+
+        .numbers:nth-child(8) span {
+            transform: rotate(-240deg);
+        }
+
+        .numbers:nth-child(9) {
+            transform: rotate(270deg);
+        }
+
+        .numbers:nth-child(9) span {
+            transform: rotate(-270deg);
+        }
+
+        .numbers:nth-child(10) {
+            transform: rotate(300deg);
+        }
+
+        .numbers:nth-child(10) span {
+            transform: rotate(-300deg);
+        }
+
+        .numbers:nth-child(11) {
+            transform: rotate(330deg);
+        }
+
+        .numbers:nth-child(11) span {
+            transform: rotate(-330deg);
+        }
+
+        .numbers:nth-child(12) {
+            transform: rotate(360deg);
+        }
+
+        .numbers:nth-child(12) span {
+            transform: rotate(-360deg);
+        }
+
+        .container {
+            width: 2000px;
+            margin: auto;
+            height: 500px;
+
+
+
+        }
+
+        /*.col {
+            width: 1500px;
+            height: 500px;
+            border: 2px solid red;
+
+
+        }*/
+
+
+        .col {
+            position: absolute;
+            left: 830px;
+            top: 80px;
+        }
+
+        .co2 {
+            position: absolute;
+            left: 1000px;
+            top: 350px;
+        }
+
+        .eye {
+            width: 70px;
+            height: 70px;
+            background-color: #e5e76c;
+            border-radius: 50%;
+            float: left;
+
+        }
+
+        .eye:first-child {
+            margin-right: 20px;
+        }
+
+        .pupil {
+            position: relative;
+            top: 15px;
+            background-color: #000000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation-name: an-pupils;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+
+        }
+
+        .pupil_ref {
+            background-color: #FFFFFF;
+            border-radius: 45%;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            top: 20px;
+            left: 10px;
+
+        }
+
+        .col3 {
+            position: absolute;
+            left: 900px;
+            top: 150px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class=" container">
+
+
+        <div class="col"> <img class="img" src="./image/未命名-1.png" alt=""></div>
+        <div class="co2"> <img class="img" src="./image/未命名-2.png" alt=""></div>
+
+        <div class="col3">
+            <div class="eye">
+                <div class="pupil">
+                    <div class="pupil_ref"></div>
+                </div>
+            </div>
+            <div class="eye">
+                <div class="pupil">
+                    <div class="pupil_ref"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="timmer">
+            <ul id="clock">
+                <li class="numbers"><span>1</span></li>
+                <li class="numbers"><span>2</span></li>
+                <li class="numbers"><span>3</span></li>
+                <li class="numbers"><span>4</span></li>
+                <li class="numbers"><span>5</span></li>
+                <li class="numbers"><span>6</span></li>
+                <li class="numbers"><span>7</span></li>
+                <li class="numbers"><span>8</span></li>
+                <li class="numbers"><span>9</span></li>
+                <li class="numbers"><span>10</span></li>
+                <li class="numbers"><span>11</span></li>
+                <li class="numbers"><span>12</span></li>
+                <li id="hour"></li>
+                <li id="minute"></li>
+                <li id="second"></li>
+            </ul>
+
+            <div class="wrapper2">
+
+                <div id="time2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="display">
+            <div id="time">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const hour = document.getElementById('hour')
+        const minute = document.getElementById('minute')
+        const second = document.getElementById('second')
+
+        const updateClock = () => {
+            const now = new Date()
+            hour.style.transform = `rotate(${30 * now.getHours() - 90}deg)`
+            minute.style.transform = `rotate(${6 * now.getMinutes() - 90}deg)`
+            second.style.transform = `rotate(${6 * now.getSeconds() - 90}deg)`
+        }
+
+        updateClock()
+        setInterval(updateClock, 1000)
+
+        setInterval(() => {
+            const time = document.querySelector("#time");
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let day_night = "AM";
+            if (hours > 12) {
+                let day_night = "PM";
+                hours = hours - 12;
+            }
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            time.textContent = hours + ":" + minutes + ":" + seconds + " " + day_night;
+        });
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>
